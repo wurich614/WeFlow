@@ -594,13 +594,12 @@ impl ServiceHub {
                         .and_then(Value::as_str)
                         .unwrap_or("")
                         .to_string();
-                    let name = c
-                        .get("remark")
-                        .or_else(|| c.get("nickname"))
-                        .or_else(|| c.get("nickName"))
-                        .or_else(|| c.get("alias"))
-                        .and_then(Value::as_str)
-                        .filter(|s| !s.is_empty())
+                    let nef = |field: &str| {
+                        c.get(field).and_then(Value::as_str).filter(|s| !s.is_empty())
+                    };
+                    let name = nef("nickName")
+                        .or_else(|| nef("remark"))
+                        .or_else(|| nef("alias"))
                         .unwrap_or(&wxid)
                         .to_string();
                     if !wxid.is_empty() {

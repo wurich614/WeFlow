@@ -595,10 +595,12 @@ impl ServiceHub {
                         .unwrap_or("")
                         .to_string();
                     let name = c
-                        .get("nickname")
+                        .get("remark")
+                        .or_else(|| c.get("nickname"))
+                        .or_else(|| c.get("nickName"))
                         .or_else(|| c.get("alias"))
-                        .or_else(|| c.get("remark"))
                         .and_then(Value::as_str)
+                        .filter(|s| !s.is_empty())
                         .unwrap_or(&wxid)
                         .to_string();
                     if !wxid.is_empty() {

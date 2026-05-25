@@ -2096,6 +2096,7 @@ dependencies = [
  "weflow-assets",
  "weflow-native",
  "zip",
+ "zstd",
 ]
 
 [[package]]

@@ -886,9 +886,10 @@ fn normalize_int64_json(raw: &str) -> String {
     }
     let mut result = String::with_capacity(raw.len() + 16);
     let bytes = raw.as_bytes();
+    let marker_bytes = marker.as_bytes();
     let mut i = 0;
     while i < bytes.len() {
-        if raw[i..].starts_with(marker) {
+        if bytes[i..].starts_with(marker_bytes) {
             result.push_str(marker);
             i += marker.len();
             while i < bytes.len() && bytes[i].is_ascii_whitespace() {
@@ -911,8 +912,9 @@ fn normalize_int64_json(raw: &str) -> String {
                 result.push_str(digits);
             }
         } else {
-            result.push(bytes[i] as char);
-            i += 1;
+            let ch = raw[i..].chars().next().unwrap();
+            result.push(ch);
+            i += ch.len_utf8();
         }
     }
     result

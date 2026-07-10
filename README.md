@@ -139,19 +139,6 @@ npm run dev
 ---
 
 
-
-## 致谢
-
-- [密语 CipherTalk](https://github.com/ILoveBingLu/miyu) 为本项目提供了基础框架
-- [WeChat-Channels-Video-File-Decryption](https://github.com/Evil0ctal/WeChat-Channels-Video-File-Decryption) 提供了视频解密相关的技术参考
-
----
-
-**Acknowledgments**
-
-- [CipherTalk](https://github.com/ILoveBingLu/miyu) provided the basic framework for this project
-- [WeChat-Channels-Video-File-Decryption](https://github.com/Evil0ctal/WeChat-Channels-Video-File-Decryption) provided technical references for video decryption
-
 ## 支持我们
 
 如果 ... 确实帮到了你，可以考虑请我们喝杯咖啡：
